@@ -19,7 +19,12 @@ enum Level {
 
 enum Topic{
     case other
+    case future
+    case communication
+    case knowledge
     case relationship
+    case study
+    
 }
 
 enum Difficulty {
