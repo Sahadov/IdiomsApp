@@ -33,7 +33,8 @@ enum Difficulty {
     case hard
 }
 
-struct Idiom {
+struct Idiom: Identifiable, Hashable {
+    let id = UUID()
     let text: String
     let meaning: String
     let translations: String
