@@ -17,14 +17,18 @@ enum Level {
     case proficiency
 }
 
-enum Topic{
-    case other
-    case future
-    case communication
-    case knowledge
-    case relationship
-    case study
-    
+extension Level {
+    var localizedDescription: String {
+        switch self {
+        case .beginner: return "Beginner"
+        case .elementary: return "Elementary"
+        case .preIntermediate: return "Ere-intermediate"
+        case .intermediate: return "Intermediate"
+        case .upperIntermediate: return "Upper-intermediate"
+        case .advanced: return "Advanced"
+        case .proficiency: return "Proficiency"
+        }
+    }
 }
 
 enum Difficulty {
@@ -38,6 +42,7 @@ struct Idiom: Identifiable, Hashable {
     let text: String
     let meaning: String
     let translations: String
+    let examples: [String]
     let level: Level
     let topic: [Topic]
     var isFavourite: Bool = false

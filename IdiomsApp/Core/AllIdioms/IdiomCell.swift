@@ -15,15 +15,19 @@ struct IdiomCell: View {
             VStack(alignment: .leading) {
                 Text(idiom.text)
                     .fontWeight(.bold)
-                    .font(.title3)
+                    .font(.title2)
                     .foregroundStyle(.accent)
                 
                 HStack {
-                    Text("#знания")
-                    Text("#intermediate")
+                    Text(idiom.level.localizedDescription)
+                        .foregroundStyle(.green)
+                    Text("\(idiom.topic.map { $0.localizedDescription }.joined(separator: " "))")
+                        .foregroundStyle(.accent)
+                    
                 }
                 .font(.footnote)
-                .foregroundStyle(.gray)
+                .fontWeight(.light)
+                
             }
             
             Spacer()
