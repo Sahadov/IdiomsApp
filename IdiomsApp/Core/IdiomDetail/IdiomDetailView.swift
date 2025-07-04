@@ -14,6 +14,10 @@ struct IdiomDetailView: View {
     var body: some View {
         ScrollView {
             IdiomHeader(idiom: idiom)
+            IdiomDescription(idiom: idiom)
+                .padding(.top, 20)
+            IdiomExamples(idiom: idiom)
+                .padding(.top, 20)
         }
         .ignoresSafeArea(edges: .bottom)
     }
