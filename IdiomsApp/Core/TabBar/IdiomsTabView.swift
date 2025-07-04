@@ -23,7 +23,7 @@ struct IdiomsTabView: View {
             
             Text("Обучение")
                 .tabItem {
-                    Image(systemName: selectedTab == 1 ? "book.fill" : "book")
+                    Image(systemName: selectedTab == 1 ? "book.closed.fill" : "book.closed")
                         .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
                 }
                 .onAppear { selectedTab = 1 }
@@ -37,7 +37,7 @@ struct IdiomsTabView: View {
                 .onAppear { selectedTab = 2 }
                 .tag(2)
             
-            Text("Мои идиомы")
+            Text("Избранное")
                 .tabItem {
                     Image(systemName: selectedTab == 3 ? "heart.fill" : "heart")
                         .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
@@ -45,9 +45,10 @@ struct IdiomsTabView: View {
                 .onAppear { selectedTab = 3 }
                 .tag(3)
             
-            Text("Настройка")
+            Text("Настройки")
                 .tabItem {
-                    Image(systemName: "gear")
+                    Image(systemName: selectedTab == 4 ? "gearshape.fill" : "gearshape")
+                        .environment(\.symbolVariants, selectedTab == 4 ? .fill : .none)
                 }
                 .onAppear { selectedTab = 4 }
                 .tag(4)
