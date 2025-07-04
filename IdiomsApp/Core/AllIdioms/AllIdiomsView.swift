@@ -21,12 +21,15 @@ struct AllIdiomsView: View {
                     }
                 }
             }
-            .navigationTitle("All idioms")
+            .navigationTitle("Все Идиомы")
             .searchable(text: $searchText, prompt: "Search")
             .navigationDestination(for: Idiom.self) { idiom in
                     IdiomDetailView(idiom: idiom)
             }
             .padding(.bottom, 20)
+            .toolbarBackground(Color.accent, for: .navigationBar)
+            .toolbarColorScheme(.dark, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
         }
     }
 }

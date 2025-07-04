@@ -29,7 +29,7 @@ struct IdiomsTabView: View {
                 .onAppear { selectedTab = 1 }
                 .tag(1)
             
-            Text("Тренировка")
+            TrainingView()
                 .tabItem {
                     Image(systemName: selectedTab == 2 ? "graduationcap.fill" : "graduationcap")
                         .environment(\.symbolVariants, selectedTab == 2 ? .fill : .none)
