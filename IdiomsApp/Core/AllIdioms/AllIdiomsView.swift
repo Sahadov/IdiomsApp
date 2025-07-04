@@ -26,6 +26,7 @@ struct AllIdiomsView: View {
             .navigationDestination(for: Idiom.self) { idiom in
                     IdiomDetailView(idiom: idiom)
             }
+            .padding(.bottom, 20)
         }
     }
 }
