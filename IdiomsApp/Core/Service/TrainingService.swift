@@ -12,22 +12,60 @@ import Combine
 class TrainingService: ObservableObject {
     static let shared = TrainingService()
 
-    @Published var questionNumber = 0
-    @Published var currentOptions: [String] = []
+    // MARK: — Публичные состояние для UI
+    @Published private(set) var questionNumber = 0
+    @Published private(set) var currentOptions: [String] = []
+    @Published private(set) var score = 0
+    @Published private(set) var isGameOver = false
 
+    // MARK: — Вопросы
     private(set) var idioms = [Idiom]()
+    
+    
+    // MARK: — Запуск новой игры
+    func startGame(totalQuestions: Int = 10) {
+        score = 0
+        questionNumber = 0
+        isGameOver = false
+        
+        idioms = Array(IdiomsData.idioms.shuffled().prefix(totalQuestions))
+        makeAnswers()
+    }
 
+    // MARK: — Выбор идиом для тренировки
     func chooseIdioms() {
         idioms = Array(IdiomsData.idioms.shuffled().prefix(10))
     }
 
+    // MARK: — Генерация вариантов ответов
     func makeAnswers() {
-
+        guard questionNumber < idioms.count else {
+            currentOptions = []
+            isGameOver = true
+            return
+        }
+        
         var opts = Set<String>()
         opts.insert(idioms[questionNumber].text)
         while opts.count < 4 {
             opts.insert(idioms.randomElement()!.text)
         }
+        
         currentOptions = Array(opts).shuffled()
+    }
+    
+    // MARK: — Проверка ответа
+    func checkAnswer(_ answer: String) -> Bool {
+        guard !isGameOver else { return false }
+
+        let correct = idioms[questionNumber].text
+        let isCorrect = (answer == correct)
+        if isCorrect {
+            score += 1
+        }
+
+        questionNumber += 1
+        makeAnswers()
+        return isCorrect
     }
 }

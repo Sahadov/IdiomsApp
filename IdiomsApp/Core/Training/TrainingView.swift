@@ -12,26 +12,57 @@ struct TrainingView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Text(viewModel.idioms[viewModel.questionNumber].meaning)
-                .font(.title)
-                .multilineTextAlignment(.center)
-
-            ForEach(viewModel.currentOptions, id: \.self) { option in
-                Text(option)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue.opacity(0.2))
-                    .cornerRadius(8)
+            if viewModel.isGameOver {
+                Text("Ура! Вы правильно выбрали \(viewModel.score) идиом.")
+                Button("Начать заново") {
+                    TrainingService.shared.startGame()
+                }
+            } else {
+                HStack {
+                    Text("- \(viewModel.questionNumber - viewModel.score)")
+                        .font(.title)
+                        .foregroundStyle(.red)
+                    Spacer()
+                    
+                    Text("+ \(viewModel.score)")
+                        .font(.title)
+                        .foregroundStyle(.green)
+                }
+                .padding(.horizontal)
+                
+                Text(viewModel.questionText)
+                    .padding(.horizontal)
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity, minHeight: 250, maxHeight: 300, alignment: .center)
+                    .background(
+                        Image("bgBlueOne")
+                            .resizable()
+                            .scaledToFill()
+                    )
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .padding(.horizontal)
+                
+                
+                ForEach(viewModel.options, id: \.self) { option in
+                    Button(action: { viewModel.choose(option) }) {
+                        Text(option)
+                            .padding()
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .background(Color.green.opacity(0.4))
+                            .cornerRadius(10)
+                            .padding(.horizontal)
+                    }
+                }
             }
-
-            Button("Следующий вопрос") {
-                viewModel.nextQuestion()
-            }
-            .disabled(viewModel.questionNumber + 1 >= viewModel.idioms.count)
-            .padding()
         }
-        .padding()
+        .navigationBarHidden(true)
+        .ignoresSafeArea()
     }
+    
 }
 
 #Preview {
