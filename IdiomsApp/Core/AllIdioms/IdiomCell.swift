@@ -34,7 +34,15 @@ struct IdiomCell: View {
             
             Image(systemName: "star")
                 .foregroundStyle(.green)
-                .font(.title2)
+                .font(.title3)
+            
+            Image(systemName: "arrowshape.forward")
+                .foregroundStyle(.green)
+                .font(.title3)
+            
+            Image(systemName: "checkmark.circle")
+                .foregroundStyle(.green)
+                .font(.title3)
             
             
         }
