@@ -27,9 +27,6 @@ struct AllIdiomsView: View {
                     IdiomDetailView(idiom: idiom)
             }
             .padding(.bottom, 20)
-            .toolbarBackground(Color.accent, for: .navigationBar)
-            .toolbarColorScheme(.dark, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
         }
     }
 }
