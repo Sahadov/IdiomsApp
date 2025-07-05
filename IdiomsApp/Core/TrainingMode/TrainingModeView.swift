@@ -11,18 +11,49 @@ struct TrainingModeView: View {
     @State var isChooseTheMeaning: Bool = false
     
     var body: some View {
-        VStack {
-            Text("Choose the mode")
-            Button {
-                isChooseTheMeaning.toggle()
-            } label: {
-                Text("Choose the idiom for the meaning")
+        ZStack {
+            Image("bgBlueBirdBrown")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+            
+            VStack(spacing: 20) {
+                Text("Choose the mode")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                
+                Button("Choose the idiom for the meaning") {
+                    isChooseTheMeaning.toggle()
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.primaryGreen.opacity(0.8))
+                .cornerRadius(8)
+                .foregroundColor(.white)
+                
+                Button("Idioms in the context") {
+                    // …
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.primaryGreen.opacity(0.8))
+                .cornerRadius(8)
+                .foregroundColor(.white)
+                
+                Button("Make idioms") {
+                    // …
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.primaryGreen.opacity(0.8))
+                .cornerRadius(8)
+                .foregroundColor(.white)
+                
+                Spacer()
             }
-            Text("Idioms in the context")
-            Text("Make idioms")
-        }
-        .fullScreenCover(isPresented: $isChooseTheMeaning) {
-            TrainingView()
+            .frame(width: 320)
+            .padding(.top, 90)
         }
     }
 }

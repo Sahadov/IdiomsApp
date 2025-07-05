@@ -13,20 +13,28 @@ struct AllIdiomsView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                ForEach (IdiomsData.idioms) { idiom in
-                    NavigationLink(value: idiom) {
-                        IdiomCell(idiom: idiom)
-                            .padding(.vertical, 5)
+            ZStack {
+                Image("bgwhiteTwo")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                
+                ScrollView {
+                    ForEach (IdiomsData.idioms) { idiom in
+                        NavigationLink(value: idiom) {
+                            IdiomCell(idiom: idiom)
+                                .padding(.vertical, 5)
+                        }
                     }
                 }
+                .searchable(text: $searchText, prompt: "Search")
+                .navigationDestination(for: Idiom.self) { idiom in
+                        IdiomDetailView(idiom: idiom)
+                }
+                .padding(.bottom, 40)
+                .padding(.top, 110)
             }
-            .navigationTitle("Все Идиомы")
-            .searchable(text: $searchText, prompt: "Search")
-            .navigationDestination(for: Idiom.self) { idiom in
-                    IdiomDetailView(idiom: idiom)
-            }
-            .padding(.bottom, 20)
+            
         }
     }
 }

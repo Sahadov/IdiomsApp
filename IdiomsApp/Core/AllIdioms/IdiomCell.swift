@@ -16,13 +16,11 @@ struct IdiomCell: View {
                 Text(idiom.text)
                     .fontWeight(.bold)
                     .font(.title2)
-                    .foregroundStyle(.accent)
+                    .foregroundStyle(.primaryPurple)
                 
                 HStack {
                     Text(idiom.level.localizedDescription)
-                        .foregroundStyle(.green)
-                    Text("\(idiom.topic.map { $0.localizedDescription }.joined(separator: " "))")
-                        .foregroundStyle(.accent)
+                        .foregroundStyle(.lightPurple)
                     
                 }
                 .font(.footnote)
@@ -33,18 +31,8 @@ struct IdiomCell: View {
             Spacer()
             
             Image(systemName: "star")
-                .foregroundStyle(.green)
-                .font(.title3)
-            
-            Image(systemName: "arrowshape.forward")
-                .foregroundStyle(.green)
-                .font(.title3)
-            
-            Image(systemName: "checkmark.circle")
-                .foregroundStyle(.green)
-                .font(.title3)
-            
-            
+                .foregroundStyle(.primaryGreen)
+                .font(.title2)
         }
         .padding(.horizontal)
         Divider()

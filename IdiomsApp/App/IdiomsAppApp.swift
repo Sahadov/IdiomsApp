@@ -10,20 +10,20 @@ import SwiftUI
 struct YourApp: App {
     init() {
         let appearance = UITabBarAppearance()
-        appearance.configureWithOpaqueBackground()
+        appearance.configureWithTransparentBackground()
+        appearance.backgroundColor = UIColor.lightPurple.withAlphaComponent(0.8)
+        appearance.backgroundEffect = nil
 
-        appearance.backgroundColor = .white
         appearance.shadowImage = nil
         appearance.shadowColor = nil
 
-        appearance.stackedLayoutAppearance.selected.iconColor = .accent
+        appearance.stackedLayoutAppearance.selected.iconColor = UIColor.white
         appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
-            .foregroundColor: UIColor.accent
+            .foregroundColor: UIColor.white
         ]
-
-        appearance.stackedLayoutAppearance.normal.iconColor = .accent
+        appearance.stackedLayoutAppearance.normal.iconColor = UIColor.white
         appearance.stackedLayoutAppearance.normal.titleTextAttributes = [
-            .foregroundColor: UIColor.accent
+            .foregroundColor: UIColor.white
         ]
 
         UITabBar.appearance().standardAppearance = appearance
