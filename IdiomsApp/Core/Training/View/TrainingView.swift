@@ -57,7 +57,7 @@ struct TrainingView: View {
                             .multilineTextAlignment(.center)
                             .frame(maxWidth: .infinity, minHeight: 250, maxHeight: 300, alignment: .center)
                             .background(
-                                Image("bgBlueOne")
+                                Image("bgBlueTwo")
                                     .resizable()
                                     .scaledToFill()
                                     .opacity(1)
@@ -73,9 +73,10 @@ struct TrainingView: View {
                                     .padding()
                                     .font(.headline)
                                     .frame(maxWidth: .infinity)
-                                    .background(Color.green.opacity(0.4))
+                                    .background(Color.primaryGreen.opacity(0.8))
                                     .cornerRadius(10)
                                     .padding(.horizontal)
+                                    .foregroundStyle(.white)
                             }
                         }
                         
@@ -87,7 +88,7 @@ struct TrainingView: View {
 
             
                 if isSettingsShown {
-                    Color.blue
+                    Color.primaryPurple
                         .ignoresSafeArea()
                         .transition(.opacity)
                         .zIndex(1)
@@ -115,11 +116,11 @@ struct TrainingView: View {
                         }
                         .padding()
                         .background(Color.white)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.primaryPurple)
                         .cornerRadius(10)
                     }
                     .padding()
-                    .background(Color.green)
+                    .background(Color.primaryGreen)
                     .cornerRadius(20)
                     .shadow(radius: 10)
                     .zIndex(2)

@@ -34,9 +34,7 @@ struct IdiomCell: View {
                 .foregroundStyle(.primaryGreen)
                 .font(.title2)
         }
-        .padding(.horizontal)
-        Divider()
-        
+        .padding(.horizontal)        
     }
 }
 

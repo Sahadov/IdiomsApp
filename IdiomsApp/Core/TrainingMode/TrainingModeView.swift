@@ -54,6 +54,9 @@ struct TrainingModeView: View {
             }
             .frame(width: 320)
             .padding(.top, 90)
+            .fullScreenCover(isPresented: $isChooseTheMeaning) {
+                TrainingView()
+            }
         }
     }
 }
