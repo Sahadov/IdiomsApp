@@ -8,7 +8,21 @@
 import SwiftUI
 
 struct TrainingModeView: View {
-    @State var isChooseTheMeaning: Bool = false
+    enum ActiveScreen: Identifiable {
+        case chooseMeaning
+        case idiomsInContext
+        case makeIdioms
+            
+        var id: Int {
+            switch self {
+            case .chooseMeaning: return 0
+            case .idiomsInContext: return 1
+            case .makeIdioms: return 2
+            }
+        }
+    }
+    
+    @State private var activeScreen: ActiveScreen?
     
     var body: some View {
         ZStack {
@@ -24,38 +38,33 @@ struct TrainingModeView: View {
                     .foregroundColor(.white)
                 
                 Button("Choose the idiom for the meaning") {
-                    isChooseTheMeaning.toggle()
+                    activeScreen = .chooseMeaning
                 }
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.primaryGreen.opacity(0.8))
-                .cornerRadius(8)
-                .foregroundColor(.white)
+                .buttonStyle(GreenButtonStyle())
                 
                 Button("Idioms in the context") {
-                    // …
+                    activeScreen = .idiomsInContext
                 }
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.primaryGreen.opacity(0.8))
-                .cornerRadius(8)
-                .foregroundColor(.white)
+                .buttonStyle(GreenButtonStyle())
                 
                 Button("Make idioms") {
-                    // …
+                    activeScreen = .makeIdioms
                 }
-                .padding()
-                .frame(maxWidth: .infinity)
-                .background(Color.primaryGreen.opacity(0.8))
-                .cornerRadius(8)
-                .foregroundColor(.white)
+                .buttonStyle(GreenButtonStyle())
                 
                 Spacer()
             }
             .frame(width: 320)
             .padding(.top, 90)
-            .fullScreenCover(isPresented: $isChooseTheMeaning) {
-                TrainingView()
+            .fullScreenCover(item: $activeScreen) { screen in
+                switch screen {
+                    case .chooseMeaning:
+                        TrainingView()
+                    case .idiomsInContext:
+                        TrainingView()
+                    case .makeIdioms:
+                        MakeIdiomsView()
+                    }
             }
         }
     }

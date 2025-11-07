@@ -15,7 +15,8 @@ struct IdiomsData {
                 translations: "Вдоль и поперек / наизусть",
                 examples: ["He knows the tax code inside out.", "After ten years in this job, I know the system inside out."],
                 level: .intermediate,
-                topic: [.knowledge, .study]),
+                topic: [.knowledge, .study],
+                words: ["inside", "out"]),
         
         Idiom(
                 text: "Put the record straight",
@@ -23,7 +24,8 @@ struct IdiomsData {
                 translations: "Внести ясность / расставить все по местам",
                 examples: ["The politician held a press conference to put the record straight about the scandal.", "I think we had a misunderstanding, so let me put the record straight — I never said that.", "The article contained several errors, so the editor added a note to put the record straight."],
                 level: .intermediate,
-                topic: [.communication]),
+                topic: [.communication],
+                words: ["Put", "the", "record", "straight"]),
         
         Idiom(
                 text: "On the cards",
@@ -31,7 +33,8 @@ struct IdiomsData {
                 translations: "Очень вероятно, возможно",
                 examples: ["A promotion might be on the cards if you keep working this hard.", "Marriage isn't on the cards for us right now — we're focused on our careers.", "Rain is on the cards this weekend, so take an umbrella."],
                 level: .upperIntermediate,
-                topic: [.future]),
+                topic: [.future],
+                words: ["On", "the", "cards"]),
         Idiom(
                 text: "Part and parcel",
                 meaning: "An essential or unavoidable part of something",
@@ -42,9 +45,8 @@ struct IdiomsData {
                     "Dealing with complaints is part and parcel of the job."
                 ],
                 level: .upperIntermediate,
-                topic: [.life, .work]
-            ),
-
+                topic: [.life, .work],
+                words: ["Part", "and", "parcel"]),
             Idiom(
                 text: "No strings attached",
                 meaning: "Without any special conditions or restrictions",
@@ -55,8 +57,8 @@ struct IdiomsData {
                     "This loan comes with no strings attached — you pay it back when you can."
                 ],
                 level: .intermediate,
-                topic: [.communication, .offers]
-            ),
+                topic: [.communication, .offers],
+                words: ["No", "strings", "attached"]),
 
             Idiom(
                 text: "Go hand in hand",
@@ -68,8 +70,8 @@ struct IdiomsData {
                     "Success and responsibility go hand in hand."
                 ],
                 level: .intermediate,
-                topic: [.relationships, .logic]
-            ),
+                topic: [.relationships, .logic],
+                words: ["Go", "hand", "in", "hand"]),
 
             Idiom(
                 text: "Ring a bell",
@@ -81,8 +83,8 @@ struct IdiomsData {
                     "Her voice rang a bell, but I couldn’t place her."
                 ],
                 level: .intermediate,
-                topic: [.memory, .communication]
-            ),
+                topic: [.memory, .communication],
+                words: ["Ring", "a", "bell"]),
 
             Idiom(
                 text: "Out of the blue",
@@ -94,8 +96,8 @@ struct IdiomsData {
                     "She called me out of the blue to apologize."
                 ],
                 level: .intermediate,
-                topic: [.surprise, .events]
-            ),
+                topic: [.surprise, .events],
+                words: ["Out", "of", "the", "blue"]),
 
             Idiom(
                 text: "Red tape",
@@ -107,8 +109,8 @@ struct IdiomsData {
                     "They simplified the application process to cut down on red tape."
                 ],
                 level: .upperIntermediate,
-                topic: [.bureaucracy, .government]
-            ),
+                topic: [.bureaucracy, .government],
+                words: ["Red", "tape"]),
 
             Idiom(
                 text: "Beat about the bush",
@@ -120,7 +122,7 @@ struct IdiomsData {
                     "I wish she wouldn’t beat about the bush when giving feedback."
                 ],
                 level: .intermediate,
-                topic: [.communication]
-            )
+                topic: [.communication],
+                words: ["Beat", "about", "the", "bush"])
     ]
 }

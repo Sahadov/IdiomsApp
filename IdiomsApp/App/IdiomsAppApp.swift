@@ -11,7 +11,10 @@ struct YourApp: App {
     init() {
         let appearance = UITabBarAppearance()
         appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = UIColor.lightPurple.withAlphaComponent(0.8)
+        //appearance.backgroundColor = UIColor.lightPurple.withAlphaComponent(0.8)
+        //appearance.backgroundEffect = nil
+        
+        appearance.backgroundColor = .clear
         appearance.backgroundEffect = nil
 
         appearance.shadowImage = nil

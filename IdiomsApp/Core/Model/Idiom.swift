@@ -45,6 +45,7 @@ struct Idiom: Identifiable, Hashable {
     let examples: [String]
     let level: Level
     let topic: [Topic]
+    let words: [String]
     var isFavourite: Bool = false
     var isDone: Bool = false
 }

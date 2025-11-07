@@ -15,6 +15,9 @@ class TrainingService: ObservableObject {
     // MARK: — Публичные состояние для UI
     @Published private(set) var questionNumber = 0
     @Published private(set) var currentOptions: [String] = []
+    
+    @Published private(set) var currentWordsOptions: [String] = []
+    @Published private(set) var currentWordsChosen: [String] = []
     @Published private(set) var score = 0
     @Published private(set) var isGameOver = false
 
@@ -30,6 +33,7 @@ class TrainingService: ObservableObject {
         
         idioms = Array(IdiomsData.idioms.shuffled().prefix(totalQuestions))
         makeAnswers()
+        makeWordsOptions()
     }
 
     // MARK: — Выбор идиом для тренировки
@@ -54,6 +58,16 @@ class TrainingService: ObservableObject {
         currentOptions = Array(opts).shuffled()
     }
     
+    // MARK: — Генерация вариантов слов для составления
+    func makeWordsOptions() {
+        guard questionNumber < idioms.count else {
+            currentWordsOptions = []
+            isGameOver = true
+            return
+        }
+        currentWordsOptions = idioms[questionNumber].words.shuffled()
+    }
+    
     // MARK: — Проверка ответа
     func checkAnswer(_ answer: String) -> Bool {
         guard !isGameOver else { return false }
@@ -66,6 +80,7 @@ class TrainingService: ObservableObject {
 
         questionNumber += 1
         makeAnswers()
+        makeWordsOptions()
         return isCorrect
     }
 }
